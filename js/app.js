@@ -13,28 +13,16 @@ const showProducts = (products) => {
   for (const product of allProducts) {
     const image = product.image;
     const div = document.createElement("div");
-    div.classList.add("col");
-    // div.innerHTML = 
-    // `<div class="single-product">
-    //   <div>
-    //     <img class="product-image" src=${image}></img>
-    //   </div>
-    //     <h4>${product.title}</h4>
-    //     <p>Category: ${product.category}</p>
-    //     <h3>Price: $${product.price}</h3>
-    //     <p>Rating: ${product.rating.rate} (${product.rating.count}) </p>
-    //     <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-    //     <button id="details-btn" class="btn btn-danger">Details</button>
-    //   </div>`;
+    div.classList.add("col");    
     div.innerHTML =
     ` <div class="card h-100">
         <div class="card-thumbnail">
           <img src="${image}" class="img-fluid p-4" alt="...">
         </div>
         <div class="card-body">
-          <h4 class="card-title">${product.title}</h5>
+          <h5 class="card-title">${product.title}</h5>
           <p class="card-text">Category: ${product.category}</p>
-          <h3 class="card-text">Price: $${product.price}</h3>
+          <h4 class="card-text">Price: $${product.price}</h4>
           <p class="card-text">Rating: ${product.rating.rate} (${product.rating.count})</p>
         </div>
         <div class="card-footer mb-2">
@@ -42,7 +30,6 @@ const showProducts = (products) => {
           <button id="details-btn" class="btn details">Details</button>
         </div>
       </div>`;
-
     document.getElementById("all-products").appendChild(div);
   }
 };
@@ -50,7 +37,7 @@ const showProducts = (products) => {
 
 
 /******************************************************************************
-                          Add To Cart Button Listener                         */
+                        Add To Cart Button Functions                         */
 // ------- Read Product List From Array of Objects   --------- 
 let count = 0;
 const addToCart = (id, price) => {
